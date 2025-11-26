@@ -30,27 +30,6 @@ Database: SQLite storage for user credentials (hashed) and search history.
 
 History: Saves recent analyses for quick reference.
 
-📂 Project Structure
-
-AI-Fake-News-Detection-V1.0/
-│
-├── data/                   # Dataset storage (WELFake + Indian News)
-├── instance/               # SQLite Database (created after running app)
-├── model_output/           # Trained DistilBERT model files
-├── static/                 # CSS styles and JavaScript logic
-├── templates/              # HTML templates (Login, Signup, Dashboard)
-│
-├── app.py                  # Flask Backend Application
-├── train.py                # Model Training Script
-├── requirements.txt        # Python Dependencies
-│
-└── Visualizations (Generated during training):
-    ├── confusion_matrix.png
-    ├── metrics_summary.png
-    ├── roc_curve.png
-    ├── pr_curve.png
-    └── training_history.png
-
 
 🛠️ Installation & Setup
 
