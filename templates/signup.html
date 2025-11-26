@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up | Veritas Pro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body class="auth-body">
+    <button id="theme-toggle" class="theme-btn fixed-toggle" onclick="toggleTheme()"><i class="fas fa-sun"></i></button>
+
+    <div class="auth-container">
+        <div class="card auth-card">
+            <h3 class="auth-subtitle">Signup</h3>
+            
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="flash-messages">
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            <form method="POST" class="auth-form" onsubmit="return validateForm()">
+                <div class="input-group">
+                    <label>Username</label>
+                    <input type="text" id="username" name="username" required oninput="checkUsername()">
+                    <small id="user-feedback" class="feedback-text"></small>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="password" name="password" required oninput="checkPassword()">
+                    <small id="pwd-feedback" class="feedback-text"></small>
+                </div>
+                <div class="input-group">
+                    <label>Confirm Password</label>
+                    <input type="password" id="confirm_password" name="confirm_password" required oninput="checkMatch()">
+                    <small id="match-feedback" class="feedback-text"></small>
+                </div>
+                <button type="submit" id="submitBtn" class="btn-analyze btn-auth">Sign Up</button>
+            </form>
+
+            <div class="auth-switch">
+                Already have an account? <a href="/login">Login</a>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

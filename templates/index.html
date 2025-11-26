@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veritas Pro | Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="app-container">
+    
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="user-profile">
+            <div class="avatar-circle"><i class="fas fa-user"></i></div>
+            <div class="user-info">
+                <h3>{{ user }}</h3>
+                <span class="status-badge">Online</span>
+            </div>
+        </div>
+
+        <div class="history-section">
+            <h4>History</h4>
+            <div id="history-list" class="history-list"></div>
+            <button class="clear-btn" onclick="clearHistory()">
+                <i class="fas fa-trash"></i> Clear
+            </button>
+        </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-content">
+        <header class="top-bar">
+            <h1>VERITAS <span>PRO</span></h1>
+            <button id="theme-toggle" class="theme-btn header-toggle" onclick="toggleTheme()">
+                <i class="fas fa-sun"></i>
+            </button>
+        </header>
+
+        <div class="card input-card">
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab('text')">Text</button>
+                <button class="tab" onclick="switchTab('url')">URL</button>
+            </div>
+            <div id="text-input-section">
+                <textarea id="newsText" rows="6" placeholder="Paste news content here..."></textarea>
+            </div>
+            <div id="url-input-section" style="display:none;">
+                <input type="text" id="newsUrl" placeholder="https://example.com/article...">
+            </div>
+            <button class="analyze-btn" onclick="analyzeNews()">ANALYZE</button>
+        </div>
+
+        <div id="loader" class="loader-container" style="display:none;">
+            <div class="spinner"></div>
+            <p>Scanning...</p>
+        </div>
+
+        <div id="result" class="card result-card" style="display:none;">
+            <div class="result-header">
+                <div class="verdict-wrapper">
+                    <span class="label-title">VERDICT</span>
+                    <h1 id="predictionLabel">FAKE</h1>
+                </div>
+                <div class="confidence-wrapper">
+                    <div class="progress-bg"><div id="confidenceBar" class="progress-fill" style="width:0%"></div></div>
+                    <span id="confidenceText">0%</span>
+                </div>
+            </div>
+
+            <div id="verificationNote" class="verification-note"></div>
+
+            <div class="grid-layout">
+                <div class="panel">
+                    <h3>Triggers</h3>
+                    <div id="explanation-tags" class="tags-container"></div>
+                </div>
+                <div class="panel">
+                    <h3>Fact Check</h3>
+                    <p id="factStatus" class="subtext"></p>
+                    <ul id="sourcesList" class="sources-list"></ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="logout-container">
+            <a href="/logout" class="logout-btn">Logout</a>
+        </div>
+    </main>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
