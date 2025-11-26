@@ -97,35 +97,12 @@ Open your browser and go to: http://127.0.0.1:5000
 
 The model was trained on a balanced dataset of ~70,000 articles (merged Global + Indian news).
 
-Metric
+Metric Score
 
-Score
-
-Accuracy
-
-~96%
-
-Precision
-
-0.95
-
-Recall
-
-0.97
-
-F1-Score
-
-0.96
-
-Visualizations
-
-The training script automatically generates these performance graphs:
-
-Confusion Matrix: To visualize true positives vs. false negatives.
-
-ROC Curve: To measure classification capability at various thresholds.
-
-Training History: To ensure the model is not overfitting.
+Accuracy = ~96%
+Precision = 0.95
+Recall = 0.97
+F1-Score = 0.96
 
 🧪 Testing Cases
 
@@ -137,10 +114,3 @@ Fake (Viral): "UNESCO has declared the Indian National Anthem as the best in the
 
 Fake (Health): "Doctors are furious! This simple kitchen ingredient cures diabetes overnight." -> Result: FAKE (Caught by AI + No Verification)
 
-🤝 Contributing
-
-Contributions are welcome! Please fork the repository and submit a pull request.
-
-📜 License
-
-Distributed under the MIT License. See LICENSE for more information.
