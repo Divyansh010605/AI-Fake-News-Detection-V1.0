@@ -100,8 +100,11 @@ The model was trained on a balanced dataset of ~70,000 articles (merged Global +
 Metric Score
 
 Accuracy = ~96%
+
 Precision = 0.95
+
 Recall = 0.97
+
 F1-Score = 0.96
 
 🧪 Testing Cases
